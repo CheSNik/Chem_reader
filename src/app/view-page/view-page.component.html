@@ -1,0 +1,30 @@
+<div class="container">
+<nav class="navbar navar-default" [ngStyle]="{backgroundColor: 'orange'}">
+</nav>
+
+<div class="row justify-content-center">
+    <div class="h1">
+        <label>{{date   | date: "MMMM d, y"}}    {{date   | date: "h:mm:ss a"}}</label>
+    </div>
+</div>
+
+<table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+        <tr>
+        <th class="align-middle">Pot #</th>
+        <th class="align-middle">Sample ID</th>
+        <th class="align-middle">Alloy</th>
+        <th class="align-middle">Fe</th>
+    </tr>
+</thead>
+
+<tbody>
+    <tr *ngFor= "let chem of resultData">
+        <td class="align-middle">{{chem.pot_number}}</td>
+        <td class="align-middle">{{chem.id}}</td>
+        <td class="align-middle" [ngStyle]="{backgroundColor: getColor(chem.alloy)}">{{chem.alloy}}</td>
+        <td class="align-middle">{{chem.fe_content}}</td>
+    </tr>
+    </tbody>
+</table>
+</div>
